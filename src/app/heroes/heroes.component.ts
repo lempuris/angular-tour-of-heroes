@@ -10,15 +10,12 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent implements OnInit {
 
 
-  heroes : Hero[];
+  heroes: Hero[] = [];
 
-  constructor(
-    private heroService: HeroService
-  ) { }
+  constructor(private heroService: HeroService) { }
 
   getHeroes(): void{
-    this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes)
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes)
   }
   ngOnInit() {
     this.getHeroes();
